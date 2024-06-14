@@ -16,7 +16,10 @@ public class Bullet : MonoBehaviour
     {
         float moveVertical = speed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y + moveVertical);
-
+        if (transform.position.y > 6.0f)
+        {
+            Destroy(gameObject);
+        }  
 
         
     }
