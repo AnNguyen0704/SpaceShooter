@@ -8,7 +8,7 @@ public class Collider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       // Hello its me, Quangcrazymen 
     }
 
     // Update is called once per frame
