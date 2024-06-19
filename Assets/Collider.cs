@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Collider : MonoBehaviour
 {
-    
+    [SerializeField] private ParticleSystem vfxExplosion;
+    [SerializeField] private GameObject EnemyImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,19 @@ public class Collider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            StartCoroutine(playVfxExplosion());
         }
         else if(other.gameObject.CompareTag("Ground")){
             Destroy(gameObject);
         }
+    }
+    IEnumerator playVfxExplosion()
+    {
+        EnemyImage.gameObject.SetActive(false);
+        vfxExplosion.Play();
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        
     }
 }
 

@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.coffee.ui-particle": {
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.13",
       "depth": 1,
@@ -103,6 +110,15 @@
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.cinemachine": {
+      "version": "2.8.9",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31"
       },
       "url": "https://packages.unity.com"
     },
