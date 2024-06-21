@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public int currentHealth = 100;
     public float speed = 3.0f;
     public GameObject bulletPrefab;
     // Start is called before the first frame update
+    public int maxHealth = 100;
+    
+
+    public HealthBar healthBar;
+
+    // Start is called before the first frame update
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -32,4 +40,5 @@ public class Move : MonoBehaviour
         }
 
     }
+
 }

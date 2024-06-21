@@ -23,8 +23,17 @@ public class Collider : MonoBehaviour
         {
             StartCoroutine(playVfxExplosion());
         }
-        else if(other.gameObject.CompareTag("Ground")){
+        else if (other.gameObject.CompareTag("Ground"))
+        {
             Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(playVfxExplosion());
+            //(other as Move).gameObject.currentHealth -= damage;
+
+            //other.gameObject.healthBar.SetHealth(currentHealth);
+           
         }
     }
     IEnumerator playVfxExplosion()
@@ -33,6 +42,10 @@ public class Collider : MonoBehaviour
         vfxExplosion.Play();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+        
+    }
+    void TakeDamage(int damage)
+    {
         
     }
 }
