@@ -21,7 +21,7 @@ public class Collider : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (timer >= timeSpawn) {
-            bulletEnemies();
+           
             timer = 0;
         }
             

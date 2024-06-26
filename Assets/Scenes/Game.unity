@@ -623,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1430e12820e7a4a4c885757c26743d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 1038220631}
   gradient:
     serializedVersion: 2
     key0: {r: 0.9622642, g: 0, b: 0, a: 1}
@@ -653,7 +653,18 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  fill: {fileID: 0}
+  fill: {fileID: 1750669437}
+--- !u!114 &1038220631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5548299373474433170, guid: 046eb9b1c5da481489696320739cac18, type: 3}
+  m_PrefabInstance: {fileID: 332036466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038220624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147590458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,3 +1040,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 484518, guid: 00a301e11327c274eb48187aaa8aa91a, type: 3}
   m_PrefabInstance: {fileID: 354938633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750669437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5548299373205494538, guid: 046eb9b1c5da481489696320739cac18, type: 3}
+  m_PrefabInstance: {fileID: 332036466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
