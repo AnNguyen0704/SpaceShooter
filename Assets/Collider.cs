@@ -6,6 +6,10 @@ public class Collider : MonoBehaviour
 {
     [SerializeField] private ParticleSystem vfxExplosion;
     [SerializeField] private GameObject EnemyImage;
+    [SerializeField] private GameObject BulletEnemiesPrefab;
+    private float timeSpawn = 2f;
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +19,12 @@ public class Collider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer >= timeSpawn) {
+            bulletEnemies();
+            timer = 0;
+        }
+            
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -30,10 +39,9 @@ public class Collider : MonoBehaviour
         else if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(playVfxExplosion());
-            //(other as Move).gameObject.currentHealth -= damage;
+            other.GetComponent<Move>().currentHealth -= 20;
+            other.GetComponent<Move>().healthBar.SetHealth(other.GetComponent<Move>().currentHealth);
 
-            //other.gameObject.healthBar.SetHealth(currentHealth);
-           
         }
     }
     IEnumerator playVfxExplosion()
@@ -47,6 +55,10 @@ public class Collider : MonoBehaviour
     void TakeDamage(int damage)
     {
         
+    }
+    private void bulletEnemies()
+    {
+        Instantiate(BulletEnemiesPrefab, transform.position, Quaternion.identity);
     }
 }
 
