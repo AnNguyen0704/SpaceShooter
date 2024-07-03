@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth; 
         healthBar.SetMaxHealth(maxHealth);
     }
 
@@ -37,6 +38,10 @@ public class Move : MonoBehaviour
         {
             Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             
+        }
+        if(currentHealth == 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
 
     }
