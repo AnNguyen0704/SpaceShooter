@@ -41,6 +41,7 @@ public class Collider : MonoBehaviour
             StartCoroutine(playVfxExplosion());
             other.GetComponent<Move>().currentHealth -= 20;
             other.GetComponent<Move>().healthBar.SetHealth(other.GetComponent<Move>().currentHealth);
+            Destroy(gameObject);
 
         }
     }
