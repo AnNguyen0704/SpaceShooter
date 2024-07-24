@@ -1,22 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager Instance;
+
     public static int Score = 0;
-    public TextMeshProUGUI scoreText;   
-    // Start is called before the first frame update
-    public static void addScore(int amount)
+    public TextMeshProUGUI scoreText;
+    // Start is called before the first frame update\
+    public void Awake()
+    {
+        Instance = this;
+    }
+    public  void addScore(int amount)
     {
         Score += amount;
     }
-    public static void minusScore(int amount)
+    public void minusScore(int amount)
     {
         Score -= amount;
     }
-
+    
 
 
 
@@ -35,4 +42,5 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score:    " + Score;
     }
+
 }

@@ -27,23 +27,23 @@ public class ETFXTarget : MonoBehaviour
 		Destroy(respawnEffect, 3.5f); //Removes attached respawn effect after x seconds
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.tag == "Missile") // If collider is tagged as missile
+        private void OnTriggerEnter2D(Collider2D col    )
         {
-            if (hitParticle)
+            if (col.tag == "Missile") // If collider is tagged as missile
             {
-				//Debug.Log("Target hit!");
-				GameObject destructibleEffect = Instantiate(hitParticle, transform.position, transform.rotation) as GameObject; // Spawns attached hit effect
-				Destroy(destructibleEffect, 2f); // Removes hit effect after x seconds
-				targetRenderer.enabled = false; // Hides the target
-				targetCollider.enabled = false; // Disables target collider
-				StartCoroutine(Respawn()); // Sets timer for respawning the target
+                if (hitParticle)
+                {
+                    //Debug.Log("Target hit!");
+                    GameObject destructibleEffect = Instantiate(hitParticle, transform.position, transform.rotation) as GameObject; // Spawns attached hit effect
+                    Destroy(destructibleEffect, 2f); // Removes hit effect after x seconds
+                    targetRenderer.enabled = false; // Hides the target
+                    targetCollider.enabled = false; // Disables target collider
+                    StartCoroutine(Respawn()); // Sets timer for respawning the target
+                }
             }
         }
-    }
-	
-	IEnumerator Respawn()
+
+        IEnumerator Respawn()
     {
         yield return new WaitForSeconds(3);
 		SpawnTarget();

@@ -17,17 +17,7 @@ public class destroyBullet : MonoBehaviour
     {
        
     }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("DestroyBullet"))
-        {
-            Destroy(gameObject);
-        }
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            ScoreManager.addScore(1);
-        }
+    
 
-
-    }
+    
 }

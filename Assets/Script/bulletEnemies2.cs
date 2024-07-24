@@ -62,7 +62,9 @@ public class bulletEnemies2 : MonoBehaviour
             {
                 transform.position = target.position;
                 isActive = false;
-
+                
+                Destroy(gameObject);
+                
             }
 
         }

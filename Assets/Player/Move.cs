@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,7 +44,22 @@ public class Move : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-
+        
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("BulletEnemy"))
+        {
+            Debug.Log("co vao ham move");
+            ScoreManager.Instance.minusScore(1);
+            HealthBar.Instance.SetHealth(-10);
+            Destroy(other);
+            if (HealthBar.Instance.isOutOfHealth())
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene("GameOver");
+            }
+        }
     }
 
 }

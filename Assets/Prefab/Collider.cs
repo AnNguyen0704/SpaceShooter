@@ -4,44 +4,54 @@ using UnityEngine;
 
 public class Collider : MonoBehaviour
 {
+    [SerializeField] private bool spawnBullet;
     [SerializeField] private ParticleSystem vfxExplosion;
     [SerializeField] private GameObject EnemyImage;
     [SerializeField] private GameObject BulletEnemiesPrefab;
     private float timeSpawn = 2f;
     private float timer;
+    [SerializeField] private Transform spawnerObject;
 
     // Start is called before the first frame update
     void Start()
     {
-       // Hello its me, Quangcrazymen 
+        // Hello its me, Quangcrazymen 
+        spawnerObject = GameObject.FindGameObjectWithTag("SpawnerBullet").transform;
+        spawnBulletEnemies();
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= timeSpawn) {
-           
-            timer = 0;
+        if (timer >= timeSpawn && spawnBullet)  {
+            
+            spawnBulletEnemies();
+             timer = 0;
         }
             
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            StartCoroutine(playVfxExplosion());
-        }
-        else if (other.gameObject.CompareTag("Ground"))
+       
+        if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(playVfxExplosion());
-            other.GetComponent<Move>().currentHealth -= 20;
-            other.GetComponent<Move>().healthBar.SetHealth(other.GetComponent<Move>().currentHealth);
-            Destroy(gameObject);
+            HealthBar.Instance.SetHealth(-10);
+            
+
+        }
+        else if (other.gameObject.CompareTag("BulletPlayer"))
+        {
+            ScoreManager.Instance.addScore(1);
+
+            StartCoroutine(playVfxExplosion());
+            
+
 
         }
     }
@@ -57,9 +67,11 @@ public class Collider : MonoBehaviour
     {
         
     }
-    private void bulletEnemies()
+    private void spawnBulletEnemies()
     {
-        Instantiate(BulletEnemiesPrefab, transform.position, Quaternion.identity);
+        
+        GameObject Bullet = Instantiate(BulletEnemiesPrefab, transform.position, Quaternion.identity, spawnerObject);
+        Bullet.SetActive(true);
     }
 }
 

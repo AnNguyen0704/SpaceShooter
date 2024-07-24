@@ -8,6 +8,9 @@ TagManager:
   - Bullet
   - Ground
   - DestroyBullet
+  - SpawnerBullet
+  - BulletPlayer
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX
